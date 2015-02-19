@@ -194,6 +194,9 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
     .state('uloga.radnik', {
       templateUrl: 'partial-uloge-radnik.html'
     })
+    .state('uloga.radnik.novauloga', {
+      templateUrl: 'partial-uloge-radnik-novauloga.html'
+    })
 
 
 

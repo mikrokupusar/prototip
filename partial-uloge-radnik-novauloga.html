@@ -1,5 +1,4 @@
-<div class="container dalje" style="margin-left: -10px;">
-  <h2>Radnik: </h2>
+<div class="container dalje" style="margin-left: -15px;">
   <form style="margin-bottom:20px;" class="form form-inline dalje" role="form">
     <div class="form-group  col-xs-12 col-sm-12 col-lg-12">
       <label for="p1" class="col-xs-3" style:"margin-left:10px; ">Uloga:</label>
@@ -17,14 +16,6 @@
         </div>
       </div>
     </div>
-    <div ui-view></div>
-    <a class="dalje" style="margin-left: 20px; text-decoration: none;" ui-sref="uloga.radnik.novauloga"><i class="fa fa-plus-circle fa-3x zelena"></i> Dodaj novu ulogu radniku</a>
+    <div ui-view="uloga.radnik.novauloga"></div>
   </form>
-  <div class="dalje">
-    <button class="btn btn-success" href="#">
-    <i class="fa fa-check fa-lg"></i> Potvrdi</button>
-    <button class="btn btn-danger" href="#">
-    <i class="fa fa-trash-o fa-lg"></i> Poništi</button>
-
-  </div>
 </div>

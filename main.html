@@ -34,7 +34,7 @@
         <!-- zaglavlje gornjeg menija -->
         <a class="navbar-brand" ui-sref="#"><img  src="images/logo_cp.png"></a>
       </div>
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav" style="font-size: 12px;">
         <li class="dropdown" data-ng-repeat="menu in menus" data-ng-class="{dropdown: menu.menus}">
 
             <a ui-sref="{{menu.action}}" data-ng-class="{'dropdown-toggle': menu.menus}" data-toggle="dropdown">{{menu.title}} <span class="caret"></span></a>
@@ -45,10 +45,19 @@
             </ul>
         </li>
       </ul>
-      <ul class="nav navbar-top-links navbar-right" >
+      <ul class="nav navbar-nav" style="font-size: 12px;">
+        <li class="dropdown">
+
+          <a ui-sref="#" class="dropdown-toggle" data-toggle="dropdown">
+            Poruke
+            <span class="label label-danger label-sm label-as-badge">3</span>  
+          </a>
+        </li>
+      </ul>
+      <ul class="nav navbar-top-links navbar-right" style="font-size: 12px;">
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" ui-sref="#">
-            <span class="label label-primary">Zoran Protić, Pošta 78250, Laktaši</span> <span class="label label-default">12. 2. 2015.</span> <i class="fa fa-caret-down fa-fw"></i>
+            <span class="label label-primary label-sm">Zoran Protić, Pošta 78250, Laktaši</span> <span class="label label-default">12. 2. 2015.</span> <i class="fa fa-caret-down fa-fw"></i>
           </a>
           <ul class="dropdown-menu dropdown-messages">
             <!-- lista poruka -->
