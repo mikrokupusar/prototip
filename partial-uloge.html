@@ -1,0 +1,22 @@
+<!-- Dodela uloga radniku u okviru odeljka -->
+
+<div class="container">
+  <legend>1010 Dodela uloga radniku nad odeljkom</legend>
+  <form class="form form-inline" role="form">
+
+    <div style="margin-bottom:20px;"  class="form-group  col-xs-12 col-sm-12 col-lg-12">
+      <label for="p3" class="col-xs-3">Odaberi radnika:</label>
+      <div class="col-lg-9">
+        <div class="input-group blize">
+
+
+          <input type="text" id="p3" class="form-control input-sm normalna"  placeholder="P_3" aria-describedby="basic-addon11">
+          <span class="input-group-addon" id="basic-addon11"><i class="fa fa-search"></i></span>
+
+        </div>
+        <button style="margin-left:20px;" class="btn btn-sm btn-primary" name="potvrdi-radnika" ui-sref="uloga.radnik">Potvrdi radnika</button>
+      </div>
+    </div>
+  </form>
+  <div ui-view></div>
+</div>

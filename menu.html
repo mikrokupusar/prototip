@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<!-- CSS boot  -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link href="css/metisMenu.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+
+	<link href="fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<style type="text/css">
+		.navbar {border-radius: 0;}
+	</style>
+
+	<!-- JS (angular, ui-router, custom) -->
+	<script src="angular-1.3.9/angular.min.js"></script>
+	<script src="angular-ui-router.min.js"></script>
+	<script src="app.js"></script>
+
+	<title></title>
+</head>
+<body data-ng-app="routerApp">
+	<!--Nav-->
+  <div id="wrapper" ng-controller="MainController as ctrl">
+	<nav class="navbar navbar-default navbar-static-top" role="navigation">
+		<div clas="navbar-header">
+			<a style="margin-top: -10px; margin-bottom: 15px;" class="navbar-brand" ui-sref="#"><img  src="images/logo_cp.png"></a>
+		</div>
+
+
+		<ul class="nav navbar-nav">
+			<li class="dropdown" ng-repeat="menu in menus" ng-class="{dropdown: menu.menus}">
+          		<a href="{{menu.action}}" ng-class="{'dropdown-toggle': menu.menus}" data-toggle="dropdown">{{menu.title}} <span class="caret"></span></a>
+          		<ul ng-if="menu.menus" class="dropdown-menu dropdown-messages">
+            		<li  ng-repeat="submenu in menu.menus">
+              			<a href="{{submenu.action}}">{{submenu.title}}</a>
+            		</li>
+          		</ul>
+        	</li>
+<!-- 			<li><a ui-sref="home">Home</a></li>
+			<li><a ui-sref="about">About</a></li> -->
+		</ul>
+		<ul class="nav navbar-nav navbar-right" style="margin-right:40px">
+			<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+					 <span class="label label-primary">Zoran Protić, pošta 78250</span> &nbsp<i class="fa fa-caret-down fa-fw"></i>
+				</a>
+				<ul class="dropdown-menu dropdown-messages">
+					<li>
+						<a href="#">
+							<div>
+								<p>Pregled prisustva</p>
+							</div>
+						</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a href="#">
+							<div>
+								<p>Poruke</p>
+							</div>
+						</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a href="#">
+							<div>
+								<p>Podešavanja</p>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Odjava <i class="fa fa-caret-down"></i>
+                </a>
+			</li>
+		</ul>
+	</nav>
+
+		<div class="col-sm-3">
+			<div class="navbar-default sidebar" role="navigation">
+				<div class="sidebar-nav navbar-collapse">
+					<ul class="nav" id="side-menu">
+       					<li ng-repeat="menu in menus">
+          					<a class="active" href="{{menu.action}}">{{menu.title}} <span class="fa arrow"></span></a>
+          					<ul class="nav nav-second-level" ng-if="menu.menus">
+            					<li style="margin-top: -10px;" ng-repeat="submenu in menu.menus" >
+              						<a href="{{submenu.action}}"> &nbsp {{submenu.title}} <span class="fa arrow"></span></a>
+
+              						<ul ng-if="submenu.menus" class="dropdown-menu">
+                						<li ng-repeat="subsubmenu in submenu.menus">
+                  							<a href="{{subsubmenu.action}}">{{subsubmenu.title}}</a>
+                						</li>
+          	    					</ul>
+
+            					</li>
+          					</ul>
+       		 			</li>
+    				</ul>
+				</div>
+			</div>
+		</div>
+
+
+  <div class="row"></div>
+	<footer class="bs-docs-footer" role="contentinfo">
+  		<div class="container">
+
+    		<p class="text-muted"><i class="fa fa-copyright fa-fw"></i> Energodata 2015 </p>
+
+  		</div>
+	</footer>
+
+</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/metisMenu.min.js"></script>
+
+
+	<script src="js/menu.js"></script>
+
+</body>
+</html>

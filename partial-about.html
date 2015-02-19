@@ -1,0 +1,34 @@
+<!-- partial-about.html -->
+
+<div class="col-sm-3">
+    <ul class="nav nav-stacked">
+        <li ng-repeat="menu in menus" ng-class="{dropdown: menu.menus}">
+          	<a href="{{menu.action}}" ng-class="{'dropdown-toggle': menu.menus}" data-toggle="dropdown">{{menu.title}}</a>
+          	<ul class="nav nav-stacked" ng-if="menu.menus">
+            	<li ng-repeat="submenu in menu.menus" ng-class="{dropdown: submenu.menus}">
+              		<a href="{{submenu.action}}" ng-class="{'dropdown-toggle': submenu.menus}" data-toggle="dropdown"><i class="glyphicon glyphicon-chevron-right"></i> {{submenu.title}}</a>
+              
+              	<ul ng-if="submenu.menus" class="dropdown-menu">
+                	<li ng-repeat="subsubmenu in submenu.menus">
+                  		<a href="{{subsubmenu.action}}">{{subsubmenu.title}}</a>
+                	</li>
+          	    </ul>
+              
+            </li>
+          </ul>
+        </li>
+    </ul>
+</div>
+
+
+
+<div class="row">
+	<div class="col-sm-6">
+		<div ui-view="columnOne"></div>		
+	</div>
+
+	<div class="col-sm-6">
+		<div ui-view="columnTwo"></div>		
+	</div>
+
+</div>

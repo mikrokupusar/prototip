@@ -1,0 +1,143 @@
+<!DOCTYPE html> <html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Pošta RS</title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Metis meni -->
+  <link href="css/metisMenu.min.css" rel="stylesheet">
+  <!-- Moj css -->
+  <link rel="stylesheet" type="text/css" href="css/mystyle.css">
+  <!-- FA -->
+  <link href="fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Angular, router, applikacija -->
+  <script src="angular-1.3.9/angular.min.js"></script>
+  <script src="angular-ui-router.min.js"></script>
+  <script src="app.js"></script>
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body data-ng-app="routerApp">
+  <div id="wrapper" data-ng-controller="MainController">
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom:0px;">
+      <div class="navbar-header">
+        <!-- zaglavlje gornjeg menija -->
+        <a class="navbar-brand" ui-sref="#"><img  src="images/logo_cp.png"></a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="dropdown" data-ng-repeat="menu in menus" data-ng-class="{dropdown: menu.menus}">
+
+            <a ui-sref="{{menu.action}}" data-ng-class="{'dropdown-toggle': menu.menus}" data-toggle="dropdown">{{menu.title}} <span class="caret"></span></a>
+            <ul data-ng-if="menu.menus" class="dropdown-menu dropdown-messages">
+              <li data-ng-repeat="submenu in menu.menus">
+                <a ui-sref="{{submenu.action}}">{{submenu.title}}</a>
+              </li>
+            </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-top-links navbar-right" >
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" ui-sref="#">
+            <span class="label label-primary">Zoran Protić, Pošta 78250, Laktaši</span> <span class="label label-default">12. 2. 2015.</span> <i class="fa fa-caret-down fa-fw"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-messages">
+            <!-- lista poruka -->
+            <li>
+              <a ui-sref="#">
+                <div>
+                  <p>Pregled poruka</p>
+                </div>
+              </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a ui-sref="#">
+                <div>
+                  <p>Podešavanja</p>
+                </div>
+              </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a ui-sref="odjava">
+                <div>
+                  <p>Odjava</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <ul class="dropdown-menu dropdown-tasks">
+            <!-- lista zadataka -->
+          </ul>
+        </li>
+        <li class="dropdown">
+          <ul class="dropdown-menu dropdown-user">
+            <li>
+              <a class="dropdown-toggle" data-toggle="dropdown" ui-sref="#">Odjava <i class="fa fa-caret-down"></i></a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div class="navbar navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+          <ul class="nav" id="side-menu">
+            <li data-ng-repeat="menu in menus">
+              <a class="active" ui-sref="{{menu.action}}">{{menu.title}} <span class="fa arrow"></span></a>
+              <ul class="nav nav-second-level" data-ng-if="menu.menus">
+                <li style="margin-top: -10px;" data-ng-repeat="submenu in menu.menus">
+                  <a ui-sref="{{submenu.action}}">{{submenu.title}} <span class="fa arrow"></span></a>
+
+                  <ul data-ng-if="submenu.menus" class="dropdown-menu">
+                    <li data-ng-repeat="subsubmenu in submenu.menus">
+                        <a ui-sref="{{subsubmenu.action}}">{{subsubmenu.title}}</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+    <div id="page-wrapper">
+      <div class="row">
+        <div class="col-lg-9">
+          <div ui-view>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="js/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- Metis menu -->
+  <script src="js/metisMenu.min.js"></script>
+  <!-- Javascript koji aktivira metis menu -->
+  <script src="js/menu.js"></script>
+</body>
+
+</html>
