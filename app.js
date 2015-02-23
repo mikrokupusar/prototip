@@ -198,6 +198,12 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: 'partial-uloge-radnik-novauloga.html'
     })
 
+    // Poruke
+
+    .state('poruka', {
+      templateUrl: 'modal-poruka.html'
+    })
+
 
 
 		// 	ABOUT PAGE AND MULTIPLE NAMED VIEWS =======================================

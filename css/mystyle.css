@@ -401,3 +401,8 @@ table.dataTable thead .sorting:after {
 .levo {
   text-align: left;
 }
+
+.label-as-badge {
+    border-radius: 1em;
+    font-size: 11px;
+}
