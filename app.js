@@ -1,5 +1,3 @@
-// test
-
 var routerApp = angular.module('routerApp', ['ui.router']);
 
 routerApp.controller("MainController", function($scope, $http) {
@@ -158,6 +156,15 @@ routerApp.controller("MainController", function($scope, $http) {
 
 
 });
+
+routerApp.controller('modalCtrl', function ($scope) {
+  $scope.showModal = false;
+  $scope.toggleModal = function() {
+    $scope.showModal = !$scope.showModal;
+  };
+});
+
+
 routerApp.config(function($stateProvider, $urlRouterProvider) {
 
 	$urlRouterProvider.otherwise('/home');
@@ -202,9 +209,9 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
 
     // Poruke
 
-    .state('poruka', {
-      templateUrl: 'modal-poruka.html'
-    })
+    // .state('poruka', {
+    //   templateUrl: 'modal-poruka.html'
+    // })
 
 
 
@@ -213,9 +220,41 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
 			url: '/uplata',
 			templateUrl: 'partial-form.html'
 		})
-    .state('paketi'{
+    .state('paketi', {
       url:'/paketi',
       templateUrl: 'partial-paketi.html'
     });
 
+});
+
+
+routerApp.directive('modal', function () {
+  return {
+    templateUrl: 'modal-poruka.html',
+    restrict: 'E',
+    transclude: true,
+    replace:true,
+    scope:true,
+    link: function postlink(scope, element, attrs) {
+      scope.title = attrs.title;
+      scope.$watch(attrs.visible, function(val){
+        if (val==true) {
+          $(element).modal('show');
+        } else {
+          $(element).modal('hide');
+        }
+      });
+
+      $(element).on('shown.bs.modal', function() {
+        scope.$apply(function() {
+          scope.$parent[attrs.visible] = true;
+        });
+      });
+      $(element).on('hidden.bs.modal', function() {
+        scope.$apply(function() {
+          scope.$parent[attrs.visible] = false;
+        });
+      });
+    }
+  };
 });

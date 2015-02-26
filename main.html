@@ -1,4 +1,5 @@
-<!DOCTYPE html> <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -32,42 +33,69 @@
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom:0px;">
       <div class="navbar-header">
         <!-- zaglavlje gornjeg menija -->
-        <a class="navbar-brand" ui-sref="#"><img  src="images/logo_cp.png"></a>
+        <a class="navbar-brand" ui-sref="#">
+          <img src="images/logo_cp.png">
+        </a>
       </div>
       <ul class="nav navbar-nav" style="font-size: 12px;">
         <li class="dropdown" data-ng-repeat="menu in menus" data-ng-class="{dropdown: menu.menus}">
 
-            <a ui-sref="{{menu.action}}" data-ng-class="{'dropdown-toggle': menu.menus}" data-toggle="dropdown">{{menu.title}} <span class="caret"></span></a>
-            <ul data-ng-if="menu.menus" class="dropdown-menu dropdown-messages">
-              <li data-ng-repeat="submenu in menu.menus">
-                <a ui-sref="{{submenu.action}}">{{submenu.title}}</a>
-              </li>
-            </ul>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav" style="font-size: 12px;">
-        <li class="dropdown">
-
-          <a ui-sref="#" class="dropdown-toggle" data-toggle="dropdown"><span style class="label label-danger label-as-badge">3</span>
-            Poruke
-          </a>
-          <ul class="dropdown-menu dropdown-messages">
-            <li>
-              <a ui-sref="poruka">
-                <div>
-                  <p>
-                    Poruka
-                  </p>
-                </div>
-              </a>
+          <a ui-sref="{{menu.action}}" data-ng-class="{'dropdown-toggle': menu.menus}" data-toggle="dropdown">{{menu.title}} <span class="caret"></span></a>
+          <ul data-ng-if="menu.menus" class="dropdown-menu dropdown-messages">
+            <li data-ng-repeat="submenu in menu.menus">
+              <a ui-sref="{{submenu.action}}">{{submenu.title}}</a>
             </li>
           </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav" style="font-size: 12px;" data-ng-controller="modalCtrl">
+        <li>
+
+          <a href="#" ng-click="toggleModal()">
+            <span style class="label label-danger label-as-badge">3</span>
+            Poruke
+          </a>
+          <modal title="Nova poruka" visible="showModal">
+            <form class="form form-inline" role="form">
+              <div class="form-group col-xs-12 col-sm-12 col-lg-12">
+                <label for="p3" class="col-xs-2">Naslov:</label>
+                <input type="text" class="col-xs-10 form-control input-sm srednja"  id="p3" placeholder="Upišite naslov poruke">
+              </div>
+            </form>
+            <form class="form form-inline dalje" role="form">
+              <div class="form-group  col-xs-12 col-sm-12 col-lg-12 malodalje">
+                <label for="p" class="col-xs-2">Primaoci:</label>
+                <!-- <label for="p1" class="col-xs-2">Radnici:</label> -->
+                <div class="xs-col-xs-3 input-group" style="padding-left: -40px;">
+                  <input type="text"  class="form-control input-sm normalna"  placeholder="Radnici" aria-describedby="basic-addon11">
+                  <span class="input-group-addon" id="basic-addon11"><i class="fa fa-caret-down"></i></span>
+                </div>
+                <div class="xs-col-xs-3 input-group" style="padding-left: 50px;">
+                  <input type="text" class="form-control input-sm normalna"  placeholder="Pošte" aria-describedby="basic-addon16">
+                  <span class="input-group-addon" id="basic-addon16"><i class="fa fa-caret-down"></i></span>
+                </div>
+                <div class="xs-col-xs-3 input-group" style="padding-left: 50px;">
+                  <input type="text" class="form-control input-sm normalna"  placeholder="Radne jedinice" aria-describedby="basic-addon17">
+                  <span class="input-group-addon" id="basic-addon17"><i class="fa fa-caret-down"></i></span>
+                </div>
+              </div>
+            </form>
+            <form class="form form-inline dalje" role="form">
+              <div class="form-group col-xs-12 col-sm-12 col-lg-12 dalje">
+                <label class="col-xs-2 text-left">Sadržaj poruke:</label>
+                <textarea   class="form-control" style="width: 100%; margin-bottom: 40px;" rows="10" placeholder="Tekst poruke">
+                </textarea>
+              </div>
+            </form>
+
+          </modal>
         </li>
       </ul>
       <ul class="nav navbar-top-links navbar-right" style="font-size: 12px;">
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" ui-sref="#">
-            <span class="label label-primary label-sm">Zoran Protić, Pošta 78250, Laktaši</span> <span class="label label-default">12. 2. 2015.</span> <i class="fa fa-caret-down fa-fw"></i>
+            <span class="label label-primary label-sm">Zoran Protić, Pošta 78250, Laktaši</span>
+            <span class="label label-default">12. 2. 2015.</span> <i class="fa fa-caret-down fa-fw"></i>
           </a>
           <ul class="dropdown-menu dropdown-messages">
             <!-- lista poruka -->
@@ -120,7 +148,7 @@
 
                   <ul data-ng-if="submenu.menus" class="dropdown-menu">
                     <li data-ng-repeat="subsubmenu in submenu.menus">
-                        <a ui-sref="{{subsubmenu.action}}">{{subsubmenu.title}}</a>
+                      <a ui-sref="{{subsubmenu.action}}">{{subsubmenu.title}}</a>
                     </li>
                   </ul>
                 </li>

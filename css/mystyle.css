@@ -372,11 +372,15 @@ table.dataTable thead .sorting:after {
     margin-bottom: 15px;
   }
 }
-
+.malodalje {
+  padding-top: 10px;
+}
 .dalje {
   padding-top: 40px;
 }
-
+.maloblize {
+  margin-left: -85px;
+}
 .blize {
   margin-left: -140px;
 }
@@ -406,3 +410,19 @@ table.dataTable thead .sorting:after {
     border-radius: 1em;
     font-size: 11px;
 }
+
+.modal-dialog {
+    max-height: 800px;
+    width: 900px;
+}
+
+/*input {
+  float: left;
+}
+
+label {
+  text-align: right;
+  float: left;
+  clear: both;
+  margin-right:15px;
+}*/
