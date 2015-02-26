@@ -32,7 +32,7 @@ routerApp.controller("MainController", function($scope, $http) {
       },
       {
         title: "Paketi",
-        action: "#"
+        action: "paketi"
       },
       {
         title: "TG Usluge",
@@ -210,6 +210,10 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
 		.state('uplata', {
 			url: '/uplata',
 			templateUrl: 'partial-form.html'
-		});
+		})
+    .state('paketi'{
+      url:'/paketi',
+      templateUrl: 'partial-paketi.html'
+    });
 
 });
