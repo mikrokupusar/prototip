@@ -52,7 +52,7 @@
         <li>
 
           <a href="#" ng-click="toggleModal()">
-            <span style class="label label-danger label-as-badge">3</span>
+            <span style class="label label-danger label-as-badge">2</span>
             Poruke
           </a>
           <modal title="Nova poruka" visible="showModal">
@@ -62,7 +62,7 @@
                 <input type="text" class="col-xs-10 form-control input-sm srednja"  id="p3" placeholder="Upišite naslov poruke">
               </div>
             </form>
-            <form class="form form-inline dalje" role="form">
+            <form style="margin-bottom: 10px;" class="form form-inline dalje" role="form">
               <div class="form-group  col-xs-12 col-sm-12 col-lg-12 malodalje">
                 <label for="p" class="col-xs-2">Primaoci:</label>
                 <!-- <label for="p1" class="col-xs-2">Radnici:</label> -->
@@ -87,6 +87,10 @@
                 </textarea>
               </div>
             </form>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Poništi</button>
+              <button type="button" class="btn btn-primary">Snimi i pošalji</button>
+            </div>
 
           </modal>
         </li>
@@ -97,14 +101,49 @@
             <span class="label label-primary label-sm">Zoran Protić, Pošta 78250, Laktaši</span>
             <span class="label label-default">12. 2. 2015.</span> <i class="fa fa-caret-down fa-fw"></i>
           </a>
-          <ul class="dropdown-menu dropdown-messages">
+          <ul class="dropdown-menu dropdown-messages" data-ng-controller="modalCtrl">
             <!-- lista poruka -->
             <li>
-              <a ui-sref="#">
+              <a href="#" ng-click="toggleModal()">
                 <div>
                   <p>Pregled poruka</p>
                 </div>
               </a>
+              <modal title="Nepročitane poruke" visible="showModal">
+                <form class="form form-inline" role="form">
+                  <div class="form-group col-xs-12 col-sm-12 col-lg-12">
+                    <h4><label class="col-xs-3 label label-info label-lg">Naslov poruke 1</label></h4>
+                    <div class="col-xs-1"></div>
+                    <h4><label class="col-xs-3 label label-info label-lg">Poreklo poruke 1</label></h4>
+                  </div>
+                </form>
+                <form class="form form-inline dalje" role="form">
+                  <div class="form-group col-xs-12 col-sm-12 col-lg-12 dalje">
+                    <label class="col-xs-2 text-left">Sadržaj poruke:</label>
+                    <textarea   class="form-control" style="width: 100%; margin-bottom: 40px;" rows="5" placeholder="Tekst poruke">Tekst poruke...
+                    </textarea>
+                  </div>
+                </form>
+                <hr />
+                <form class="form form-inline" role="form">
+                  <div class="form-group col-xs-12 col-sm-12 col-lg-12">
+                    <h4><label class="col-xs-3 label label-info label-lg">Naslov poruke 2</label></h4>
+                    <div class="col-xs-1"></div>
+                    <h4><label class="col-xs-3 label label-info label-lg">Poreklo poruke 2</label></h4>
+                  </div>
+                </form>
+                <form class="form form-inline dalje" role="form">
+                  <div class="form-group col-xs-12 col-sm-12 col-lg-12 dalje">
+                    <label class="col-xs-2 text-left">Sadržaj poruke:</label>
+                    <textarea   class="form-control" style="width: 100%; margin-bottom: 40px;" rows="5" placeholder="Tekst poruke">Tekst poruke...
+                    </textarea>
+                  </div>
+                </form>
+                <div>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">U redu</button>
+                </div>
+
+              </modal>
             </li>
             <li class="divider"></li>
             <li>
