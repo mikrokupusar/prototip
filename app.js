@@ -228,6 +228,20 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
 });
 
 
+routerApp.directive('input1', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'input1.html',
+    link: function(scope, e, a){
+      scope.naslov = a.naslov;
+      scope.hint = a.hint;
+    },
+    replace:true,
+    scope:{}
+  }
+});
+
+
 routerApp.directive('modal', function () {
   return {
     templateUrl: 'modal-poruka.html',

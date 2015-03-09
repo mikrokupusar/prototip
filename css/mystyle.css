@@ -416,6 +416,10 @@ table.dataTable thead .sorting:after {
     width: 900px;
 }
 
+.inputdaleko {
+    margin-top: 20px;
+}
+
 /*input {
   float: left;
 }
