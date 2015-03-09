@@ -242,6 +242,22 @@ routerApp.directive('input1', function() {
 });
 
 
+routerApp.directive('inputwaddon', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'inputwaddon.html',
+    link: function(scope, e, a){
+      scope.naslov = a.naslov;
+      scope.hint = a.hint;
+      scope.addon1 = a.addon1;
+      scope.addon2 = a.addon2;
+    },
+    replace:true,
+    scope:{}
+  }
+});
+
+
 routerApp.directive('modal', function () {
   return {
     templateUrl: 'modal-poruka.html',
