@@ -7,8 +7,9 @@ Interna dokumentacija za razvoj prototipa Portala.
 ## Direktive
 ### HTML, Bootstrap direktive
 #### Input1
- * tag: input1
+ * tag:
+        <input1>
  * atributi : naslov = {text}, hint = {text}
- 
+
 
 ## Filteri
